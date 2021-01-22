@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>YKK&#39;s Space</title>
+  
+  <subtitle>学习！</subtitle>
+  <link href="http://ykk911.top/atom.xml" rel="self"/>
+  
+  <link href="http://ykk911.top/"/>
+  <updated>2021-01-22T06:43:44.517Z</updated>
+  <id>http://ykk911.top/</id>
+  
+  <author>
+    <name>YKK</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python之禅的最佳翻译</title>
+    <link href="http://ykk911.top/2021/01/22/Python%E4%B9%8B%E7%A6%85%E7%9A%84%E6%9C%80%E4%BD%B3%E7%BF%BB%E8%AF%91/"/>
+    <id>http://ykk911.top/2021/01/22/Python%E4%B9%8B%E7%A6%85%E7%9A%84%E6%9C%80%E4%BD%B3%E7%BF%BB%E8%AF%91/</id>
+    <published>2021-01-21T16:00:00.000Z</published>
+    <updated>2021-01-22T06:43:44.517Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="Zen-of-Python（Python之禅）"><a href="#Zen-of-Python（Python之禅）" class="headerlink" title="Zen of Python（Python之禅）"></a>Zen of Python（Python之禅）</h2><p>Beautiful is better than ugly. （优美比丑陋好）<br>Explicit is better than implicit.（清晰比晦涩好）<br>Simple is better than complex.（简单比复杂好）<br>Complex is better than complicated.（复杂比错综复杂好）<br>Flat is better than nested.（扁平比嵌套好）<br>Sparse is better than dense.（稀疏比密集好）<br>Readability counts.（可读性很重要）<br>Special cases aren’t special enough to break the rules.（特殊情况也不应该违反这些规则）<br>Although practicality beats purity.（但现实往往并不那么完美）<br>Errors should never pass silently.（异常不应该被静默处理）<br>Unless explicitly silenced.（除非你希望如此）<br>In the face of ambiguity, refuse the temptation to guess.（遇到模棱两可的地方，不要胡乱猜测）<br>There should be one– and preferably only one –obvious way to do it.（肯定有一种通常也是唯一一种最佳的解决方案）<br>Although that way may not be obvious at first unless you’re Dutch.（虽然这种方案并不是显而易见的，因为你不是那个荷兰人^这里指的是Python之父Guido^）<br>Now is better than never.（现在开始做比不做好）<br>Although never is often better than *right* now.（不做比盲目去做好^极限编程中的YAGNI原则^）<br>If the implementation is hard to explain, it’s a bad idea.（如果一个实现方案难于理解，它就不是一个好的方案）<br>If the implementation is easy to explain, it may be a good idea.（如果一个实现方案易于理解，它很有可能是一个好的方案）<br>Namespaces are one honking great idea – let’s do more of those!（命名空间非常有用，我们应当多加利用）</p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h2 id=&quot;Zen-of-Python（Python之禅）&quot;&gt;&lt;a href=&quot;#Zen-of-Python（Python之禅）&quot; class=&quot;headerlink&quot; title=&quot;Zen of Python（Python之禅）&quot;&gt;&lt;/a&gt;Zen of Python（Pyt</summary>
+      
+    
+    
+    
+    <category term="Python之禅" scheme="http://ykk911.top/categories/Python%E4%B9%8B%E7%A6%85/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="http://ykk911.top/2021/01/21/hello-world/"/>
+    <id>http://ykk911.top/2021/01/21/hello-world/</id>
+    <published>2021-01-21T12:29:32.140Z</published>
+    <updated>2021-01-21T12:29:32.140Z</updated>
+    
+    <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt; for</summary>
+      
+    
+    
+    
+    
+  </entry>
+  
+  <entry>
+    <title>基础操作</title>
+    <link href="http://ykk911.top/2021/01/21/%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%93%8D%E4%BD%9C/"/>
+    <id>http://ykk911.top/2021/01/21/%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%93%8D%E4%BD%9C/</id>
+    <published>2021-01-20T16:00:00.000Z</published>
+    <updated>2021-01-22T01:16:50.799Z</updated>
+    
+    <content type="html"><![CDATA[<p>ctrl+s - 保存</p><p>1.普通文字内容</p><p>2.标题</p><p>在文字前加1-6个#</p><h3 id="标题（加一个-一级，加得越多越小）"><a href="#标题（加一个-一级，加得越多越小）" class="headerlink" title="标题（加一个#一级，加得越多越小）"></a>标题（加一个#一级，加得越多越小）</h3><p>#最多加6个才有意义</p><p>3.列表</p><p>有序列表：内容前加‘数字.’，数字一般从1开始</p><ol><li>啊  第一步<ol><li>回车后摁tab键，二级有序</li></ol></li></ol><p>无序列表：内容前加‘+’或者‘-’</p><ul><li>python<ul><li>回车后摁tab</li></ul></li></ul><ul><li>java</li></ul><p>4.代码引用:三个反引号（esc下面那个）跟编程语言，再三个反引号结尾</p><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line"></span><br><span class="line">print(<span class="string">&#x27;hello&#x27;</span>)</span><br></pre></td></tr></table></figure><p><code>引用2</code></p><blockquote><p>引用3</p></blockquote><blockquote><blockquote><p>引用4</p></blockquote></blockquote><p><strong>加粗</strong>  快捷键ctrl+b   <strong>来</strong></p><p><em>倾斜</em>  快捷键ctrl+i   <em>来</em></p><p><strong><em>既倾斜又加粗</em></strong>  无快捷键</p><p>5.超链接(摁住ctrl键才能点击，导出或者发布后就可以直接点)</p><p><a href="https://www.baidu.com/">百度</a></p><p>6.图片</p><p>绝对路径：点击按钮选择图片</p><p><img src="D:\Projects\预科\桌面控件\files\123.png"></p><p>相对路径：将图片和md文档放在一个文件夹下</p><p>网络图片地址</p><p><img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"></p><p>7.表格  |–|–|回车</p><table><thead><tr><th>–</th><th>–</th></tr></thead><tbody><tr><td></td><td></td></tr></tbody></table>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;p&gt;ctrl+s - 保存&lt;/p&gt;
+&lt;p&gt;1.普通文字内容&lt;/p&gt;
+&lt;p&gt;2.标题&lt;/p&gt;
+&lt;p&gt;在文字前加1-6个#&lt;/p&gt;
+&lt;h3 id=&quot;标题（加一个-一级，加得越多越小）&quot;&gt;&lt;a href=&quot;#标题（加一个-一级，加得越多越小）&quot; class=&quot;headerlink&quot; </summary>
+      
+    
+    
+    
+    <category term="Md基础" scheme="http://ykk911.top/categories/Md%E5%9F%BA%E7%A1%80/"/>
+    
+    
+  </entry>
+  
+</feed>

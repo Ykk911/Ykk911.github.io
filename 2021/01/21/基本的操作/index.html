@@ -1,23 +1,159 @@
-extends includes/layout.pug
+<!DOCTYPE html><html lang="zh-CN"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no"><meta name="author" content="YKK"><meta name="renderer" content="webkit"><meta name="copyright" content="YKK"><meta name="keywords" content="YKK's Space"><meta name="description" content="null"><meta name="Cache-Control" content="no-cache"><meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"><title>基础操作 · Mr.Long's Blog</title><link rel="stylesheet" href="/css/style.css?v=2018.7.9"><link rel="stylesheet" href="/css/animation.css?v=2018.7.9"><link rel="icon" href="/img/assets/favicon.ico"><link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css?version=1.5.6"><!-- scripts--><script>(function( w ){
+  "use strict";
+  // rel=preload support test
+  if( !w.loadCSS ){
+    w.loadCSS = function(){};
+  }
+  // define on the loadCSS obj
+  var rp = loadCSS.relpreload = {};
+  // rel=preload feature support test
+  // runs once and returns a function for compat purposes
+  rp.support = (function(){
+    var ret;
+    try {
+      ret = w.document.createElement( "link" ).relList.supports( "preload" );
+    } catch (e) {
+      ret = false;
+    }
+    return function(){
+      return ret;
+    };
+  })();
 
-block content
-  article#post.article-entry
-    != page.content
-  // lincense
-  if(theme.copyright.enable === true && page.copyright !== false)
-    .license-wrapper
-      p 
-        span Author:  
-        a(href=config.url)= config.author
-      p 
-        span Link:  
-        a(href=page.permalink)= page.permalink
-      p 
-        span Copyright:  
-        span!= theme.copyright.license
-  include includes/partial/post-nav.pug
-  #comment
-    include includes/comment/livere.pug
-    include includes/comment/disqus.pug
-    include includes/comment/changyan.pug
-    include includes/comment/gitment.pug
+  // if preload isn't supported, get an asynchronous load by using a non-matching media attribute
+  // then change that media back to its intended value on load
+  rp.bindMediaToggle = function( link ){
+    // remember existing media attr for ultimate state, or default to 'all'
+    var finalMedia = link.media || "all";
+
+    function enableStylesheet(){
+      link.media = finalMedia;
+    }
+
+    // bind load handlers to enable media
+    if( link.addEventListener ){
+      link.addEventListener( "load", enableStylesheet );
+    } else if( link.attachEvent ){
+      link.attachEvent( "onload", enableStylesheet );
+    }
+
+    // Set rel and non-applicable media type to start an async request
+    // note: timeout allows this to happen async to let rendering continue in IE
+    setTimeout(function(){
+      link.rel = "stylesheet";
+      link.media = "only x";
+    });
+    // also enable media after 3 seconds,
+    // which will catch very old browsers (android 2.x, old firefox) that don't support onload on link
+    setTimeout( enableStylesheet, 3000 );
+  };
+
+  // loop through link elements in DOM
+  rp.poly = function(){
+    // double check this to prevent external calls from running
+    if( rp.support() ){
+      return;
+    }
+    var links = w.document.getElementsByTagName( "link" );
+    for( var i = 0; i < links.length; i++ ){
+      var link = links[ i ];
+      // qualify links to those with rel=preload and as=style attrs
+      if( link.rel === "preload" && link.getAttribute( "as" ) === "style" && !link.getAttribute( "data-loadcss" ) ){
+        // prevent rerunning on link
+        link.setAttribute( "data-loadcss", true );
+        // bind listeners to toggle media back
+        rp.bindMediaToggle( link );
+      }
+    }
+  };
+
+  // if unsupported, run the polyfill
+  if( !rp.support() ){
+    // run once at least
+    rp.poly();
+
+    // rerun poly on an interval until onload
+    var run = w.setInterval( rp.poly, 500 );
+    if( w.addEventListener ){
+      w.addEventListener( "load", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    } else if( w.attachEvent ){
+      w.attachEvent( "onload", function(){
+        rp.poly();
+        w.clearInterval( run );
+      } );
+    }
+  }
+
+
+  // commonjs
+  if( typeof exports !== "undefined" ){
+    exports.loadCSS = loadCSS;
+  }
+  else {
+    w.loadCSS = loadCSS;
+  }
+}( typeof global !== "undefined" ? global : this ) );</script><script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js" defer></script><script src="/js/main.js?v=2018.7.9" defer></script><!-- fancybox--><link rel="preload" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'"><script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.2.5/jquery.fancybox.min.js" defer></script><!-- busuanzi--><script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script><meta name="generator" content="Hexo 5.3.0"><link rel="alternate" href="/atom.xml" title="YKK's Space" type="application/atom+xml">
+</head><body><section class="profile-close" id="cxo-profile"><div class="profile-avatar"><i class="fa fa-caret-left"></i><img src="/img/assets/cat.png"></div><!--.profile-saying
+  i.fa.fa-comment
+  .saying--><div class="cxo-profile-inner"><div class="profile-name">longlongyu</div><div class="profile-signature">for me</div><div class="friends"><div>FRIENDS</div><span><a href="//github.com/Longlongyu" target="_black">friendA</a></span><span><a href="//github.com/" target="_black">friendB</a></span><span><a href="//github.com/" target="_black">friendC</a></span></div><div class="read-progress"></div></div></section><header id="cxo-intro" style="height: 70vh;background-image: url(/img/intro/index-bg.png);"><nav id="cxo-intro-nav"><section><div class="intro-nav-title"><a href="/">Mr.Long's Blog</a></div><div class="intro-nav-label-box"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div><i class="fa fa-bars intro-nav-menu"><div class="intro-nav-drop"><a href="/">Home</a><a href="/about/">About</a><a href="/archives/">Archives</a><a href="/tags/">Tags</a></div></i><div class="clear"></div></section></nav><h1 class="post-title">基础操作</h1><div class="post-intros"><div class="post-intro-meta"><span class="post-intro-time"><i class="post-intro-calendar fa fa-calendar"></i><span>2021/01/21</span></span><span class="busuanzi-pv" id="busuanzi_container_page_pv"><i class="post-intro-calendar fa fa-user-o"></i><span id="busuanzi_value_page_pv"></span></span></div></div></header><article class="cxo-up" id="cxo-content-outer"><section id="cxo-content-inner"><article class="article-entry" id="post"><p>ctrl+s - 保存</p>
+<p>1.普通文字内容</p>
+<p>2.标题</p>
+<p>在文字前加1-6个#</p>
+<h3 id="标题（加一个-一级，加得越多越小）"><a href="#标题（加一个-一级，加得越多越小）" class="headerlink" title="标题（加一个#一级，加得越多越小）"></a>标题（加一个#一级，加得越多越小）</h3><p>#最多加6个才有意义</p>
+<p>3.列表</p>
+<p>有序列表：内容前加‘数字.’，数字一般从1开始</p>
+<ol>
+<li>啊  第一步<ol>
+<li>回车后摁tab键，二级有序</li>
+</ol>
+</li>
+</ol>
+<p>无序列表：内容前加‘+’或者‘-’</p>
+<ul>
+<li>python<ul>
+<li>回车后摁tab</li>
+</ul>
+</li>
+</ul>
+<ul>
+<li>java</li>
+</ul>
+<p>4.代码引用:三个反引号（esc下面那个）跟编程语言，再三个反引号结尾</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> x <span class="keyword">in</span> <span class="built_in">range</span>(<span class="number">100</span>):</span><br><span class="line"></span><br><span class="line">	print(<span class="string">&#x27;hello&#x27;</span>)</span><br></pre></td></tr></table></figure>
+<p><code>引用2</code></p>
+<blockquote>
+<p>引用3</p>
+</blockquote>
+<blockquote>
+<blockquote>
+<p>引用4</p>
+</blockquote>
+</blockquote>
+<p><strong>加粗</strong>  快捷键ctrl+b   <strong>来</strong></p>
+<p><em>倾斜</em>  快捷键ctrl+i   <em>来</em></p>
+<p><strong><em>既倾斜又加粗</em></strong>  无快捷键</p>
+<p>5.超链接(摁住ctrl键才能点击，导出或者发布后就可以直接点)</p>
+<p><a target="_blank" rel="noopener" href="https://www.baidu.com/">百度</a></p>
+<p>6.图片</p>
+<p>绝对路径：点击按钮选择图片</p>
+<p><img src="D:\Projects\预科\桌面控件\files\123.png"></p>
+<p>相对路径：将图片和md文档放在一个文件夹下</p>
+<p>网络图片地址</p>
+<p><img src="https://www.baidu.com/img/PCtm_d9c8750bed0b3c7d089fa7d55720d6cf.png"></p>
+<p>7.表格  |–|–|回车</p>
+<table>
+<thead>
+<tr>
+<th>–</th>
+<th>–</th>
+</tr>
+</thead>
+<tbody><tr>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+</article><!-- lincense--><div class="license-wrapper"><p> <span>Author:  </span><a href="http://Ykk911.top">YKK</a></p><p> <span>Link:  </span><a href="http://ykk911.top/2021/01/21/%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%93%8D%E4%BD%9C/">http://ykk911.top/2021/01/21/%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%93%8D%E4%BD%9C/</a></p><p> <span>Copyright:  </span><span>All articles in this blog are licensed under <a rel="license noopener" target="_blank" href="https://creativecommons.org/licenses/by-nc-nd/3.0">CC BY-NC-SA 3.0</a> unless stating additionally.</span></p></div><div class="post-paginator"><a class="prevSlogan" href="/2021/01/21/hello-world/" title="Hello World"><span>< PreviousPost</span><br><span class="prevTitle">Hello World</span></a><div class="clear"></div></div><div id="comment"></div></section></article><footer id="cxo-footer-outer"><div id="cxo-footer-inner"><p class="footer-container"><span>Site by </span><a target="_blank" rel="noopener" href="http://hexo.io"><span>Hexo</span></a><span> | theme </span><a target="_blank" rel="noopener" href="https://github.com/Longlongyu/hexo-theme-Cxo"><span>Cxo</span></a></p><i class="fa fa-user"> </i><span id="busuanzi_value_site_uv"></span><span> | </span><i class="fa fa-eye"> </i><span id="busuanzi_value_site_pv"></span></div></footer><!-- catelog--><div class="toc-wrapper" style="top: 70vh;"><div class="toc-catalog"><i class="fa fa-list"> </i><span>CATALOG</span></div><ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A0%87%E9%A2%98%EF%BC%88%E5%8A%A0%E4%B8%80%E4%B8%AA-%E4%B8%80%E7%BA%A7%EF%BC%8C%E5%8A%A0%E5%BE%97%E8%B6%8A%E5%A4%9A%E8%B6%8A%E5%B0%8F%EF%BC%89"><span class="toc-number">1.</span> <span class="toc-text">标题（加一个#一级，加得越多越小）</span></a></li></ol></div><!-- top--><i class="fa fa-arrow-up close" id="go-up" aria-hidden="true"></i></body></html>
